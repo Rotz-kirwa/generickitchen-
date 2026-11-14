@@ -4,7 +4,7 @@ A responsive restaurant website for Twala Kitchen, featuring Kenyan food, cateri
 
 ## Update the placeholders
 
-- **Menu and prices:** Edit the six menu entries in `src/routes/index.tsx`. Replace each `KSh [price]` with the confirmed price.
+- **Menu and prices:** Edit the six menu entries and `$` prices in `src/routes/index.tsx`.
 - **Phone and WhatsApp:** Replace `+254000000000` in phone links and `254000000000` in WhatsApp links with the real Kenyan number. Use digits only (including the country code) in `wa.me` links.
 - **Email, location, and opening hours:** Replace `hello@twala.example`, `[Add your address here]`, and `[Add opening days and hours]` with the restaurant's real details.
 - **Founder’s story:** Replace the bracketed story in the About section with Twala’s own words.

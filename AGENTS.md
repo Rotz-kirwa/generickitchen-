@@ -7,7 +7,8 @@
 >
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
-
+>twala food ordering app for returants in kenya  and businesses 
+>twala(git add food and beverages )
 ## What Lovable manages
 
 Rules outside this block are the project's own. Change the pieces below in
