@@ -27,12 +27,12 @@ export const Route = createFileRoute("/")({
 
 const navItems = ["Home", "Menu", "Catering", "About", "Contact"];
 const products = [
-  { name: "Chapati", category: "Street food", image: chapatiSamosa, position: "left center", description: "Soft, flaky, and perfect every time.", price: "KSh [price]" },
-  { name: "Nyama Choma", category: "Mains", image: nyamaChoma, position: "center", description: "Tender, juicy, and full of smoky flavour.", price: "KSh [price]" },
-  { name: "Samosa", category: "Street food", image: chapatiSamosa, position: "right center", description: "Crispy outside, tasty inside.", price: "KSh [price]" },
-  { name: "Mahamri", category: "Snacks", image: mahamri, position: "left center", description: "Soft, fluffy, and mildly sweet.", price: "KSh [price]" },
-  { name: "Mandazi", category: "Snacks", image: mahamri, position: "center", description: "Sweet, warm, and simply irresistible.", price: "KSh [price]" },
-  { name: "All Kenyan Foods", category: "Mains", image: kenyanPlate, position: "center", description: "A little of everything we call home.", price: "KSh [price]" },
+  { name: "Chapati", category: "Street food", image: chapatiSamosa, description: "Soft, flaky, and perfect every time.", price: "KSh [price]" },
+  { name: "Nyama Choma", category: "Mains", image: nyamaChoma, description: "Tender, juicy, and full of smoky flavour.", price: "KSh [price]" },
+  { name: "Samosa", category: "Street food", image: chapatiSamosa, description: "Crispy outside, tasty inside.", price: "KSh [price]" },
+  { name: "Mahamri", category: "Snacks", image: mahamri, description: "Soft, fluffy, and mildly sweet.", price: "KSh [price]" },
+  { name: "Mandazi", category: "Snacks", image: mahamri, description: "Sweet, warm, and simply irresistible.", price: "KSh [price]" },
+  { name: "All Kenyan Foods", category: "Mains", image: kenyanPlate, description: "A little of everything we call home.", price: "KSh [price]" },
 ];
 const categories = ["All", "Street food", "Mains", "Snacks"];
 

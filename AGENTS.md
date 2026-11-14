@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Twala site structure
+
+- Keep the restaurant experience as a single-page site at `/`; the requested content and anchor navigation are one continuous page, not separate routes.
