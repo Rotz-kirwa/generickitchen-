@@ -51,8 +51,7 @@ export const Route = createFileRoute("/")({
 const navItems = ["Home", "Menu", "Catering", "About", "Contact"];
 const HERO_SLIDE_INTERVAL_MS = 3000;
 
-type StandaloneHeroSlide = {
-  kind: "dish";
+type HeroSlide = {
   name: string;
   scriptSubtitle: string;
   category: string;
@@ -63,24 +62,23 @@ type StandaloneHeroSlide = {
   alt: string;
 };
 
-type BrandHeroSlide = {
-  kind: "brand";
-  name: string;
-};
-
-type HeroSlide = BrandHeroSlide | StandaloneHeroSlide;
-
-const heroSlides: HeroSlide[] = [
+const heroSlides: [HeroSlide, ...HeroSlide[]] = [
   {
-    kind: "brand",
-    name: "Twala Kitchen",
+    name: "Nyama Choma",
+    scriptSubtitle: "Smoky, generous, unforgettable",
+    category: "Mains",
+    price: "KSh [price]",
+    description:
+      "Smoky grilled nyama choma, served with vibrant kachumbari and all the joy of the shared table.",
+    image: nyamaChoma,
+    position: "center",
+    alt: "Nyama choma with fresh tomato and red onion kachumbari",
   },
   {
-    kind: "dish",
     name: "Kenyan Beef Pilau",
     scriptSubtitle: "Fragrant coastal spices",
     category: "Mains",
-    price: "$16.00",
+    price: "KSh [price]",
     description:
       "Basmati rice slow-cooked with caramelized beef, whole cardamom, cumin, and fresh tomato kachumbari.",
     image: pilau,
@@ -88,11 +86,10 @@ const heroSlides: HeroSlide[] = [
     alt: "Aromatic Kenyan beef pilau served with fresh kachumbari",
   },
   {
-    kind: "dish",
     name: "Chapati & Beef Samosas",
     scriptSubtitle: "Hot off the pan",
     category: "Street food",
-    price: "From $4.00",
+    price: "KSh [price]",
     description:
       "Soft, golden-layered chapatis paired with crisp spiced beef samosas and fresh herb kachumbari.",
     image: chapatiSamosa,
@@ -100,11 +97,10 @@ const heroSlides: HeroSlide[] = [
     alt: "Freshly folded chapati with golden crispy samosas",
   },
   {
-    kind: "dish",
     name: "Traditional Githeri",
     scriptSubtitle: "Hearty home comfort",
     category: "Mains",
-    price: "$13.50",
+    price: "KSh [price]",
     description:
       "Slow-simmered golden maize and red kidney beans in savoury tomato-onion gravy with ripe sliced avocado.",
     image: githeri,
@@ -112,11 +108,10 @@ const heroSlides: HeroSlide[] = [
     alt: "Steaming traditional Kenyan githeri with sliced avocado",
   },
   {
-    kind: "dish",
     name: "Coastal Mahamri & Chai",
     scriptSubtitle: "Mildly sweet & fluffy",
     category: "Snacks",
-    price: "$4.50",
+    price: "KSh [price]",
     description:
       "Pillowy coconut and cardamom triangles fried to a warm golden finish, made for sharing with spiced Kenyan tea.",
     image: mahamri,
@@ -124,11 +119,10 @@ const heroSlides: HeroSlide[] = [
     alt: "Golden Kenyan mahamri served with spiced tea",
   },
   {
-    kind: "dish",
     name: "Viazi Karai & Bhajias",
     scriptSubtitle: "Crisp street snack",
     category: "Snacks",
-    price: "$6.50",
+    price: "KSh [price]",
     description:
       "Golden turmeric-battered potato slices fried crisp and served with tangy tamarind ukwaju chutney.",
     image: bhajia,
@@ -136,11 +130,10 @@ const heroSlides: HeroSlide[] = [
     alt: "Crispy Kenyan potato bhajias with tamarind ukwaju chutney",
   },
   {
-    kind: "dish",
     name: "All Kenyan Comfort Plate",
     scriptSubtitle: "A little bit of home",
     category: "Mains",
-    price: "$22.00",
+    price: "KSh [price]",
     description:
       "Rich slow-braised Kenyan beef stew alongside fluffy white rice, sautéed sukuma wiki, and zesty kachumbari.",
     image: kenyanPlate,
@@ -300,29 +293,26 @@ function TwalaHome() {
     () => false,
   );
   const [heroSlideIndex, setHeroSlideIndex] = useState(0);
-  const [heroAnimating, setHeroAnimating] = useState(true);
   const [heroPaused, setHeroPaused] = useState(false);
   const visibleProducts = useMemo(
     () => (category === "All" ? products : products.filter((item) => item.category === category)),
     [category],
   );
-  const activeHeroIndex = heroSlideIndex % heroSlides.length;
-  const activeHeroSlide = heroSlides[activeHeroIndex] ?? heroSlides[0]!;
-  const heroTrackSlides = useMemo(() => [...heroSlides, heroSlides[0]!], []);
+  const activeHeroSlide = heroSlides[heroSlideIndex] ?? heroSlides[0];
+  const activeHeroIndex = heroSlideIndex;
 
   useEffect(() => {
     if (heroPaused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionPreference.matches) return;
     const timer = window.setInterval(() => {
-      setHeroAnimating(true);
-      setHeroSlideIndex((prev) => (prev >= heroSlides.length ? 1 : prev + 1));
+      setHeroSlideIndex((index) => (index + 1) % heroSlides.length);
     }, HERO_SLIDE_INTERVAL_MS);
     return () => window.clearInterval(timer);
   }, [heroPaused]);
 
   const selectHeroSlide = (index: number) => {
-    setHeroAnimating(true);
-    setHeroSlideIndex(index);
+    setHeroSlideIndex(((index % heroSlides.length) + heroSlides.length) % heroSlides.length);
   };
 
   useEffect(() => {
