@@ -11,6 +11,9 @@ export default defineConfig(({ command }) => ({
     host: "::",
     port: 8080,
   },
+  optimizeDeps: {
+    include: ["lucide-react"],
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),

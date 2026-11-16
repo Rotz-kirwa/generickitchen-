@@ -8,7 +8,7 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 
@@ -69,6 +69,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   );
 }
 
+const GOOGLE_FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Playball&display=swap";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     // Replace these placeholders with the app's name and description when first building the app.
@@ -77,31 +80,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Twala Kitchen — Kenyan Food Made with Love" },
+      { title: "Generic Food & Delicacies — Kenyan Food Made with Love" },
       {
         name: "description",
-        content: "Authentic Kenyan street food and traditional meals from Twala Kitchen.",
+        content:
+          "Authentic Kenyan street food and traditional meals from Generic Food & Delicacies.",
       },
-      { name: "author", content: "Twala Kitchen" },
-      { property: "og:title", content: "Twala Kitchen — Kenyan Food Made with Love" },
+      { name: "author", content: "Generic Food & Delicacies" },
+      { property: "og:title", content: "Generic Food & Delicacies — Kenyan Food Made with Love" },
       {
         property: "og:description",
-        content: "Authentic Kenyan street food and traditional meals from Twala Kitchen.",
+        content:
+          "Authentic Kenyan street food and traditional meals from Generic Food & Delicacies.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Playball&display=swap",
-      },
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
     ],
@@ -117,6 +118,19 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <link
+          data-google-fonts=""
+          rel="stylesheet"
+          href={GOOGLE_FONTS_URL}
+          media="print"
+          suppressHydrationWarning
+          onLoad={(event) => {
+            event.currentTarget.media = "all";
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href={GOOGLE_FONTS_URL} />
+        </noscript>
       </head>
       <body suppressHydrationWarning>
         {children}
@@ -128,6 +142,13 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const fontLink = document.querySelector<HTMLLinkElement>("link[data-google-fonts]");
+    if (fontLink && fontLink.media !== "all") {
+      fontLink.media = "all";
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
