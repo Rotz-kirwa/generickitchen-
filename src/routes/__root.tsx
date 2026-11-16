@@ -80,18 +80,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Generic Food & Delicacies — Kenyan Food Made with Love" },
+      { title: "Generic Kitchen Delicacies — Kenyan Food Made with Love" },
       {
         name: "description",
         content:
-          "Authentic Kenyan street food and traditional meals from Generic Food & Delicacies.",
+          "Authentic Kenyan street food and traditional meals from Generic Kitchen Delicacies.",
       },
-      { name: "author", content: "Generic Food & Delicacies" },
-      { property: "og:title", content: "Generic Food & Delicacies — Kenyan Food Made with Love" },
+      { name: "author", content: "Generic Kitchen Delicacies" },
+      { property: "og:title", content: "Generic Kitchen Delicacies — Kenyan Food Made with Love" },
       {
         property: "og:description",
         content:
-          "Authentic Kenyan street food and traditional meals from Generic Food & Delicacies.",
+          "Authentic Kenyan street food and traditional meals from Generic Kitchen Delicacies.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

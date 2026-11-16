@@ -62,15 +62,15 @@ import cateringMealPreps from "@/assets/catering-meal-preps.webp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Generic Food & Delicacies — Taste of Home, Made with Love" },
+      { title: "Generic Kitchen Delicacies — Taste of Home, Made with Love" },
       {
         name: "description",
         content:
-          "Discover the warm, authentic flavours of Kenya at Generic Food & Delicacies. Sizzling nyama choma, aromatic Swahili pilau, hearty stews, and full-service event catering.",
+          "Discover the warm, authentic flavours of Kenya at Generic Kitchen Delicacies. Sizzling nyama choma, aromatic Swahili pilau, hearty stews, and full-service event catering.",
       },
       {
         property: "og:title",
-        content: "Generic Food & Delicacies — Taste of Home, Made with Love",
+        content: "Generic Kitchen Delicacies — Taste of Home, Made with Love",
       },
       {
         property: "og:description",
@@ -545,9 +545,7 @@ function BrandWordmark() {
         </span>
         <span className="wordmark-ribbon">
           <span className="wordmark-spear wordmark-spear-left" aria-hidden="true" />
-          <span className="wordmark-sub">
-            FOOD <em className="wordmark-amp">&amp;</em> DELICACIES
-          </span>
+          <span className="wordmark-sub">KITCHEN DELICACIES</span>
           <span className="wordmark-spear wordmark-spear-right" aria-hidden="true" />
         </span>
       </span>
@@ -690,7 +688,7 @@ function GenericHome() {
     );
 
     const messageLines = [
-      "Hello Generic Food & Delicacies! I'd like to place an order from your website:",
+      "Hello Generic Kitchen Delicacies! I'd like to place an order from your website:",
       "",
       "📋 *ORDER SUMMARY:*",
       ...itemsSummary,
@@ -816,7 +814,7 @@ function GenericHome() {
     if (!form.reportValidity()) return;
     const data = new FormData(form);
     const message = [
-      "Hello Generic Food & Delicacies! I'd love to make an enquiry.",
+      "Hello Generic Kitchen Delicacies! I'd love to make an enquiry.",
       `Name: ${data.get("name")}`,
       `Phone: ${data.get("phone")}`,
       `Event date: ${data.get("date")}`,
@@ -840,7 +838,7 @@ function GenericHome() {
             href="#home"
             className="wordmark"
             onClick={() => setMobileOpen(false)}
-            aria-label="Generic Food & Delicacies home"
+            aria-label="Generic Kitchen Delicacies home"
           >
             <BrandWordmark />
           </a>
@@ -916,7 +914,7 @@ function GenericHome() {
               event.preventDefault();
               goTo("home");
             }}
-            aria-label="Generic Food & Delicacies home"
+            aria-label="Generic Kitchen Delicacies home"
           >
             <BrandWordmark />
           </a>
@@ -1031,7 +1029,7 @@ function GenericHome() {
                       <Button variant="secondary" size="lg" asChild>
                         <a
                           href={getWhatsAppUrl(
-                            `Hello Generic Food & Delicacies! I'd like to order ${slide.name}.`,
+                            `Hello Generic Kitchen Delicacies! I'd like to order ${slide.name}.`,
                           )}
                           target="_blank"
                           rel="noreferrer"
@@ -1183,7 +1181,7 @@ function GenericHome() {
                       <a
                         className="menu-order"
                         href={getWhatsAppUrl(
-                          `Hello Generic Food & Delicacies! I'd like to ask about ${item.name}.`,
+                          `Hello Generic Kitchen Delicacies! I'd like to ask about ${item.name}.`,
                         )}
                         target="_blank"
                         rel="noreferrer"
@@ -1470,8 +1468,8 @@ function GenericHome() {
               </h2>
               <div className="about-story">
                 <p>
-                  At Generic Food &amp; Delicacies, we celebrate the true culinary soul of Kenya.
-                  Every dish is rooted in timeless heritage and rich family traditions — from smoky
+                  At Generic Kitchen Delicacies, we celebrate the true culinary soul of Kenya. Every
+                  dish is rooted in timeless heritage and rich family traditions — from smoky
                   charcoal-grilled <strong>Nyama Choma</strong> and fragrant Swahili{" "}
                   <strong>Pilau</strong>, to slow-simmered{" "}
                   <strong>Beef, Goat, and Matumbo stews</strong>, steaming fluffy{" "}
@@ -1687,7 +1685,7 @@ function GenericHome() {
             <a
               href="#home"
               className="wordmark footer-wordmark"
-              aria-label="Generic Food & Delicacies home"
+              aria-label="Generic Kitchen Delicacies home"
             >
               <BrandWordmark />
             </a>
@@ -1723,7 +1721,7 @@ function GenericHome() {
           </p>
         </div>
         <div className="footer-bottom page-width">
-          <span>© {new Date().getFullYear()} Generic Food &amp; Delicacies. Made with care.</span>
+          <span>© {new Date().getFullYear()} Generic Kitchen Delicacies. Made with care.</span>
           <span>
             Kenyan at heart <Heart size={12} /> Made to be shared
           </span>
@@ -1740,7 +1738,7 @@ function GenericHome() {
           <ArrowUp />
         </Button>
         <a
-          href={getWhatsAppUrl("Hello Generic Food & Delicacies! I'd love to talk to you now.")}
+          href={getWhatsAppUrl("Hello Generic Kitchen Delicacies! I'd love to talk to you now.")}
           className="wa-float"
           target="_blank"
           rel="noreferrer"

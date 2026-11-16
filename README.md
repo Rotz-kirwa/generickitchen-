@@ -1,4 +1,4 @@
-# Generic Food & Delicacies (`generickitchen-`)
+# Generic Kitchen Delicacies (`generickitchen-`)
 
 > **Authentic Kenyan & East African Cuisine · Taste of Home, Made with Love**
 
@@ -9,14 +9,17 @@ A modern, high-performance, single-page restaurant and event catering web applic
 ## 🌟 Highlights & Features
 
 ### 🍛 1. Authentic 27-Item Menu with Australian ($ AUD) Pricing
+
 Curated and priced according to authentic East African restaurant benchmarks in Australia (e.g. Perth, Brisbane, Melbourne):
+
 - **Grilled Meats & Mains ($20 – $28):** Sizzling Nyama Choma Platter ($28), Kuku Choma ($24), Mbuzi Goat Stew ($25), Beef Stew ($22), Chicken Stew ($22), Matumbo ($20), Beef Liver ($21).
 - **Traditional & Vegetarian ($18 – $22):** Swahili Beef Pilau ($22), Mukimo Special ($20), Traditional Githeri ($18), Matoke Green Banana Stew ($19), Vegetarian Meal Combo ($19).
-- **Slow-Simmered Soups ($13 – $14):** Bone Broth Soup (*Supu ya Mifupa*, $14), Hearty Beef Soup ($13), Free-Range Chicken Soup ($13).
+- **Slow-Simmered Soups ($13 – $14):** Bone Broth Soup (_Supu ya Mifupa_, $14), Hearty Beef Soup ($13), Free-Range Chicken Soup ($13).
 - **Bites, Pastries & Accompaniments ($4 – $9):** Crispy Beef Samosas (3 pcs, $8), Potato Bhajias ($9), Golden Mahamri ($7), Sweet Kaimati ($7), Layered Chapati ($4), Classic Ugali ($5), Steamed Rice ($6), Braised Sukuma Wiki ($7), Fresh Kachumbari ($6), Sweet Potatoes ($6).
-- **Spiced Beverages ($5):** Authentic Kenyan Spiced Chai (*Chai ya Tangawizi*, $5).
+- **Spiced Beverages ($5):** Authentic Kenyan Spiced Chai (_Chai ya Tangawizi_, $5).
 
 ### 🛒 2. Interactive Cart & Drawer
+
 - **Persistent Floating Pill**: Displays live item count and current cart total in `$ AUD`.
 - **Side Slide-Over Drawer**:
   - Live quantity adjustment steppers (`+` / `-`).
@@ -25,10 +28,12 @@ Curated and priced according to authentic East African restaurant benchmarks in 
   - "Browse Menu" empty state with quick link.
 
 ### 📱 3. Instant Kitchen WhatsApp Checkout
+
 - One-click checkout compiles an itemized order receipt and opens a direct WhatsApp chat with the restaurant line (**+61 455 433 391**).
 - Formats dish quantities, unit prices, subtotals, customer notes, and the grand total cleanly in the message.
 
 ### 💬 4. Official Animated WhatsApp Floating Widget
+
 - **Official Brand Design**: Styled with official WhatsApp Green (`#25D366`), crisp white official vector emblem, and subtle glowing shadow.
 - **Dynamic Periodic Motion**:
   - **Comes in**: Smoothly slides out from behind the WhatsApp button.
@@ -37,12 +42,15 @@ Curated and priced according to authentic East African restaurant benchmarks in 
   - **Hover / Touch Lock**: Hovering or focusing keeps the badge permanently expanded.
 
 ### 🎉 5. Event Catering Showcase
+
 Showcases three distinct catering services with high-resolution imagery:
+
 1. **Birthdays & Parties**: Bespoke menus, sizzling nyama choma platters, and authentic Kenyan sweet bars.
 2. **Events & Banquets**: Weddings, corporate galas, and cultural get-togethers with full chafing-dish buffet setups.
 3. **Meal Preps & Platters**: Hot, wholesome weekly family and individual meal prep packages.
 
 ### ⚡ 6. Single-Page Architecture & Responsive Design
+
 - Continuous smooth-scroll navigation across `/` (`#home`, `#menu`, `#catering`, `#about`, `#contact`).
 - Fully optimized responsive layout for mobile phones, tablets, laptops, and ultra-wide displays.
 - High-performance next-gen WebP imagery with modern aspect ratios and accessible alt text.
@@ -85,33 +93,40 @@ Showcases three distinct catering services with high-resolution imagery:
 ## 🚀 Local Development
 
 ### Prerequisites
+
 - [Bun](https://bun.sh/) (version 1.0 or higher recommended) or [Node.js](https://nodejs.org/) (v20+)
 
 ### Setup
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/Rotz-kirwa/generickitchen-.git
    cd generickitchen-
    ```
 
 2. **Install dependencies:**
+
    ```bash
    bun install
    ```
 
 3. **Start local development server:**
+
    ```bash
    bun run dev
    ```
+
    Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 4. **Run unit tests:**
+
    ```bash
    bun run test
    ```
 
 5. **Lint and format code:**
+
    ```bash
    bun run lint
    bun run format
@@ -129,6 +144,7 @@ Showcases three distinct catering services with high-resolution imagery:
 This repository is pre-configured for seamless zero-config deployment on [Vercel](https://vercel.com/) via TanStack Start and Nitro's Vercel Output API v3 (`.vercel/output`).
 
 ### One-Click Vercel Setup:
+
 1. Push your code to your GitHub repository:
    ```bash
    git push -u origin main
@@ -137,12 +153,13 @@ This repository is pre-configured for seamless zero-config deployment on [Vercel
 3. Click **"Add New..."** → **"Project"**.
 4. Import the **`generickitchen-`** repository.
 5. In the configuration screen:
-   - **Framework Preset**: *Other* (configured automatically via `vercel.json`)
+   - **Framework Preset**: _Other_ (configured automatically via `vercel.json`)
    - **Build Command**: `bun run build` (or leave default)
    - **Output Directory**: Automatically detected (`.vercel/output`)
 6. Click **Deploy**. Vercel will bundle the static assets and deploy the Nitro serverless SSR functions automatically.
 
 ### Included `vercel.json` Configuration:
+
 ```json
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
@@ -160,7 +177,7 @@ This repository is pre-configured for seamless zero-config deployment on [Vercel
 - **Location**: Australia
 - **Phone**: `0455 433 391` (`+61 455 433 391`)
 - **Direct WhatsApp**: [`+61 455 433 391`](https://wa.me/61455433391)
-- **Tagline**: *Taste of Home, Made with Love*
+- **Tagline**: _Taste of Home, Made with Love_
 
 ---
 
