@@ -49,7 +49,7 @@ export const Route = createFileRoute("/")({
 });
 
 const navItems = ["Home", "Menu", "Catering", "About", "Contact"];
-const HERO_SLIDE_INTERVAL_MS = 3000;
+const HERO_SLIDE_INTERVAL_MS = 3500;
 
 type HeroSlide = {
   name: string;
@@ -149,7 +149,7 @@ const products = [
     image: nyamaChoma,
     position: "center",
     description: "Tender, juicy, and full of smoky flavour.",
-    price: "$18.00",
+    price: "KSh [price]",
   },
   {
     name: "Kenyan Beef Pilau",
@@ -157,7 +157,7 @@ const products = [
     image: pilau,
     position: "center",
     description: "Fragrant basmati rice slow-cooked with spiced beef & kachumbari.",
-    price: "$16.00",
+    price: "KSh [price]",
   },
   {
     name: "Traditional Githeri",
@@ -165,7 +165,7 @@ const products = [
     image: githeri,
     position: "center",
     description: "Slow-simmered maize and beans finished with herbs & avocado.",
-    price: "$13.50",
+    price: "KSh [price]",
   },
   {
     name: "All Kenyan Foods",
@@ -173,7 +173,7 @@ const products = [
     image: kenyanPlate,
     position: "center",
     description: "A little of everything we call home.",
-    price: "$22.00",
+    price: "KSh [price]",
   },
   {
     name: "Mahamri",
@@ -181,7 +181,7 @@ const products = [
     image: mahamri,
     position: "10% center",
     description: "Soft, fluffy, and mildly sweet with coastal cardamom.",
-    price: "$4.50",
+    price: "KSh [price]",
   },
   {
     name: "Mandazi",
@@ -189,7 +189,7 @@ const products = [
     image: mahamri,
     position: "60% center",
     description: "Sweet, warm, and simply irresistible.",
-    price: "$4.00",
+    price: "KSh [price]",
   },
   {
     name: "Viazi Karai & Bhajias",
@@ -197,7 +197,7 @@ const products = [
     image: bhajia,
     position: "center",
     description: "Crispy spiced potato bites served with tangy tamarind ukwaju.",
-    price: "$6.50",
+    price: "KSh [price]",
   },
   {
     name: "Chapati",
@@ -205,7 +205,7 @@ const products = [
     image: chapatiSamosa,
     position: "12% center",
     description: "Soft, flaky, and perfect every time.",
-    price: "$4.00",
+    price: "KSh [price]",
   },
   {
     name: "Samosa",
@@ -213,7 +213,7 @@ const products = [
     image: chapatiSamosa,
     position: "88% center",
     description: "Crispy outside, tasty spiced beef inside.",
-    price: "$5.00",
+    price: "KSh [price]",
   },
 ];
 const categories = ["All", "Mains", "Snacks", "Street food"];
@@ -437,136 +437,64 @@ function TwalaHome() {
         >
           <div
             className="hero-carousel-track"
-            style={{
-              transform: `translate3d(-${heroSlideIndex * 100}%, 0, 0)`,
-              transition: heroAnimating ? "transform 700ms cubic-bezier(0.22, 1, 0.36, 1)" : "none",
-            }}
-            onTransitionEnd={() => {
-              if (heroSlideIndex >= heroSlides.length) {
-                setHeroAnimating(false);
-                setHeroSlideIndex(0);
-              }
-            }}
+            style={{ transform: `translate3d(-${heroSlideIndex * 100}%, 0, 0)` }}
           >
-            {heroTrackSlides.map((slide, idx) =>
-              slide.kind === "brand" ? (
-                <div
-                  className="hero-carousel-slide hero-brand-slide"
-                  key={`brand-${idx}`}
-                  aria-hidden={idx !== activeHeroIndex}
-                >
-                  <div className="hero-inner page-width">
-                    <div className="hero-copy">
-                      <div className="eyebrow">
-                        <span /> A LITTLE TASTE OF KENYA
-                      </div>
-                      <h1>
-                        Twala<span className="hero-title-green"> Kitchen</span>
-                      </h1>
-                      <p className="hero-script">&amp; delicacy</p>
-                      <p className="hero-tagline">
-                        TASTE OF HOME. MADE WITH LOVE. <Heart className="inline-heart" size={17} />
-                      </p>
-                      <p className="hero-description">
-                        From the first fold of a chapati to the last bite of nyama choma, we bring
-                        the generous, feel-good flavours of Kenya to your table.
-                      </p>
-                      <div className="hero-actions">
-                        <Button variant="default" size="lg" onClick={() => goTo("menu")}>
-                          Explore the menu <ArrowRight size={17} />
-                        </Button>
-                        <Button variant="secondary" size="lg" asChild>
-                          <a href="https://wa.me/254000000000" target="_blank" rel="noreferrer">
-                            <WhatsAppMark size={17} /> Order on WhatsApp
-                          </a>
-                        </Button>
-                      </div>
-                      <div className="hero-note">
-                        <span className="note-line" />
-                        <span>Cooked fresh, shared with joy.</span>
-                        <Heart size={15} />
-                      </div>
+            {heroSlides.map((slide, idx) => (
+              <div
+                className="hero-carousel-slide hero-standalone-slide"
+                key={slide.name}
+                aria-hidden={idx !== activeHeroIndex}
+                inert={idx !== activeHeroIndex}
+              >
+                <img
+                  className="hero-standalone-bg"
+                  src={slide.image}
+                  alt={slide.alt}
+                  style={{ objectPosition: slide.position }}
+                  width={1440}
+                  height={1080}
+                  fetchPriority={idx === 0 ? "high" : "auto"}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                />
+                <div className="hero-standalone-scrim" aria-hidden="true" />
+                <div className="hero-standalone-inner page-width">
+                  <div className="hero-standalone-details">
+                    <div className="hero-standalone-meta">
+                      <span className="hero-standalone-pill">{slide.category}</span>
+                      <span className="hero-standalone-price">{slide.price}</span>
                     </div>
-                    <div className="hero-visual">
-                      <div className="hero-photo-wrap">
-                        <img
-                          className="hero-photo"
-                          src={nyamaChoma}
-                          alt="Freshly grilled nyama choma with kachumbari"
-                          width={1440}
-                          height={1200}
-                          fetchPriority="high"
-                        />
-                      </div>
-                      <div className="flavour-seal">
-                        <span className="seal-small">Real</span>
-                        <span>Kenyan</span>
-                        <span className="seal-small">Flavors</span>
-                        <Heart size={21} />
-                      </div>
-                      <div className="hero-photo-caption">
-                        <span>01 /</span> The long-table feeling
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div
-                  className="hero-carousel-slide hero-standalone-slide"
-                  key={`${slide.name}-${idx}`}
-                  aria-hidden={idx !== activeHeroIndex}
-                >
-                  <img
-                    className="hero-standalone-bg"
-                    src={slide.image}
-                    alt={slide.alt}
-                    style={{ objectPosition: slide.position }}
-                    width={1440}
-                    height={1080}
-                    loading={idx <= 2 ? "eager" : "lazy"}
-                  />
-                  <div className="hero-standalone-scrim" aria-hidden="true" />
-                  <div className="hero-standalone-inner page-width">
-                    <div className="hero-standalone-title">
-                      <h2>{slide.name}</h2>
-                    </div>
-                    <div className="hero-standalone-details">
-                      <div className="hero-standalone-meta">
-                        <span className="hero-standalone-pill">{slide.category}</span>
-                        <span className="hero-standalone-price">{slide.price}</span>
-                      </div>
-                      <p className="hero-standalone-script">{slide.scriptSubtitle}</p>
-                      <p className="hero-standalone-desc">{slide.description}</p>
-                      <div className="hero-actions">
-                        <Button variant="secondary" size="lg" asChild>
-                          <a
-                            href={`https://wa.me/254000000000?text=${encodeURIComponent(`Hello Twala Kitchen! I'd like to order ${slide.name}.`)}`}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <WhatsAppMark size={17} /> Order {slide.name}
-                          </a>
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="hero-standalone-menu-btn"
-                          onClick={() => {
-                            setCategory(slide.category);
-                            goTo("menu");
-                          }}
+                    <h1 className="hero-standalone-title">{slide.name}</h1>
+                    <p className="hero-standalone-script">{slide.scriptSubtitle}</p>
+                    <p className="hero-standalone-desc">{slide.description}</p>
+                    <div className="hero-actions">
+                      <Button variant="secondary" size="lg" asChild>
+                        <a
+                          href={`https://wa.me/254000000000?text=${encodeURIComponent(`Hello Twala Kitchen! I'd like to order ${slide.name}.`)}`}
+                          target="_blank"
+                          rel="noreferrer"
                         >
-                          View {slide.category} <ArrowRight size={17} />
-                        </Button>
-                      </div>
+                          <WhatsAppMark size={17} /> Order {slide.name}
+                        </a>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        className="hero-standalone-menu-btn"
+                        onClick={() => {
+                          setCategory(slide.category);
+                          goTo("menu");
+                        }}
+                      >
+                        View {slide.category} <ArrowRight size={17} />
+                      </Button>
                     </div>
                   </div>
                 </div>
-              ),
-            )}
+              </div>
+            ))}
           </div>
           <div
-            className={`hero-controls page-width${activeHeroSlide.kind === "dish" ? " hero-controls-dark" : ""}`}
+            className="hero-controls page-width hero-controls-dark"
           >
             <div className="hero-controls-status" aria-live="polite">
               <span>{String(activeHeroIndex + 1).padStart(2, "0")}</span>
@@ -576,9 +504,11 @@ function TwalaHome() {
             <div className="hero-controls-right">
               <div className="hero-slider-dots" role="tablist" aria-label="Hero showcase slides">
                 {heroSlides.map((slide, idx) => (
-                  <button
+                  <Button
                     key={slide.name}
                     type="button"
+                    variant="ghost"
+                    size="icon"
                     role="tab"
                     aria-selected={activeHeroIndex === idx}
                     aria-label={`Show ${slide.name}`}
