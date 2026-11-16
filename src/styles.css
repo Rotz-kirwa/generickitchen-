@@ -284,67 +284,63 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 .header-cart-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   height: 40px;
-  padding: 0 14px;
-  border-radius: 3px;
-  background: var(--forest);
-  color: var(--paper);
-  border: 1px solid var(--forest-deep);
-  font-size: 12px;
-  font-weight: 700;
+  padding: 0 8px;
+  background: transparent;
+  color: var(--ink);
+  border: none;
+  font-size: 13.5px;
+  font-weight: 600;
   cursor: pointer;
+  text-decoration: none;
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 .header-cart-btn:hover {
-  background: var(--forest-deep);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(18, 53, 36, 0.25);
+  color: var(--forest);
+  transform: translateY(-1px);
 }
-.header-cart-badge {
-  display: inline-grid;
-  place-items: center;
-  min-width: 19px;
-  height: 19px;
-  padding: 0 5px;
-  background: var(--ochre);
-  color: var(--forest-deep);
-  border-radius: 9999px;
-  font-size: 11px;
-  font-weight: 800;
-}
-.mobile-header-actions {
-  display: none;
-  align-items: center;
-  gap: 8px;
-}
-.mobile-cart-btn {
+.cart-icon-wrap {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 3px;
+}
+.cart-icon-wrap svg {
+  color: currentColor;
+  transition: transform 0.2s ease;
+}
+.header-cart-btn:hover .cart-icon-wrap svg {
+  transform: scale(1.08);
+}
+.header-cart-label {
+  font-family: inherit;
+  letter-spacing: 0.2px;
+}
+.header-cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  display: inline-grid;
+  place-items: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
   background: var(--forest);
   color: var(--paper);
-  border: 1px solid var(--forest-deep);
-  cursor: pointer;
-}
-.mobile-cart-btn .header-cart-badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .mobile-toggle {
   display: none;
@@ -2380,9 +2376,6 @@
     font-size: 11px;
   }
   .mobile-toggle {
-    display: inline-flex;
-  }
-  .mobile-header-actions {
     display: inline-flex;
   }
   .main-nav {

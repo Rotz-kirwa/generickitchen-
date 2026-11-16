@@ -874,22 +874,13 @@ function GenericHome() {
               onClick={() => setCartOpen(true)}
               aria-label={`Open food cart (${totalCartItems} items)`}
             >
-              <ShoppingBag size={17} />
-              <span>Cart</span>
-              {totalCartItems > 0 && <span className="header-cart-badge">{totalCartItems}</span>}
+              <span className="cart-icon-wrap">
+                <ShoppingBag size={21} />
+                {totalCartItems > 0 && <span className="header-cart-badge">{totalCartItems}</span>}
+              </span>
+              <span className="header-cart-label">Cart</span>
             </button>
-          </div>
 
-          <div className="mobile-header-actions">
-            <button
-              type="button"
-              className="mobile-cart-btn"
-              onClick={() => setCartOpen(true)}
-              aria-label={`Open food cart (${totalCartItems} items)`}
-            >
-              <ShoppingBag size={18} />
-              {totalCartItems > 0 && <span className="header-cart-badge">{totalCartItems}</span>}
-            </button>
             <Button
               variant="ghost"
               size="icon"
