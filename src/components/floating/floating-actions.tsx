@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowUp, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppWidget } from "@/components/floating/whatsapp-widget";
+import { formatCurrency } from "@/data/restaurant-data";
 import { useCart } from "@/context/use-cart";
 
 export const FloatingActions = React.memo(function FloatingActions() {
@@ -48,14 +49,14 @@ export const FloatingActions = React.memo(function FloatingActions() {
           type="button"
           className="floating-cart-pill"
           onClick={() => setCartOpen(true)}
-          aria-label={`View cart (${totalCartItems} items, total $${totalCartAmount.toLocaleString()})`}
+          aria-label={`View cart (${totalCartItems} items, total $${formatCurrency(totalCartAmount)})`}
         >
           <span className="floating-cart-count">
             <ShoppingBag size={14} />
             <strong>{totalCartItems}</strong>
           </span>
           <span>View Cart</span>
-          <span className="floating-cart-total">${totalCartAmount.toLocaleString()}</span>
+          <span className="floating-cart-total">${formatCurrency(totalCartAmount)}</span>
         </button>
       )}
     </>

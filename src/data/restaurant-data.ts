@@ -78,6 +78,14 @@ export function getWhatsAppUrl(text?: string) {
   return `${base}?text=${encodeURIComponent(text)}`;
 }
 
+export function formatCurrency(amount: number): string {
+  const rounded = Number(Math.round(Number(amount + "e+2")) + "e-2");
+  return rounded.toLocaleString("en-AU", {
+    minimumFractionDigits: Number.isInteger(rounded) ? 0 : 2,
+    maximumFractionDigits: 2,
+  });
+}
+
 export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
   {
     name: "Nyama Choma",
@@ -125,8 +133,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     name: "Traditional Githeri",
     scriptSubtitle: "Hearty home comfort",
     category: "Vegetables & Sides",
-    price: "$16",
-    priceNum: 16,
+    price: "$20",
+    priceNum: 20,
     description:
       "Slow-simmered golden maize and red kidney beans in savoury tomato-onion gravy with ripe sliced avocado.",
     image: githeri,
@@ -187,8 +195,8 @@ export const products: Product[] = [
     image: menuChapati,
     position: "center 72%",
     description: "Soft, flaky, layered flatbread made fresh every time.",
-    price: "$4",
-    priceNum: 4,
+    price: "$3",
+    priceNum: 3,
   },
   {
     name: "Ugali",
@@ -264,8 +272,8 @@ export const products: Product[] = [
     image: menuBeefStew,
     position: "center",
     description: "Tender beef simmered in a rich tomato, onion & dhania gravy.",
-    price: "$23",
-    priceNum: 23,
+    price: "$28",
+    priceNum: 28,
   },
   {
     name: "Chicken Stew",
@@ -283,8 +291,8 @@ export const products: Product[] = [
     position: "center",
     description:
       "Tender goat meat stew braised slowly with aromatic spices — served standalone or as a meal with ugali/chapati, sukuma wiki & kachumbari.",
-    price: "$25",
-    priceNum: 25,
+    price: "$30",
+    priceNum: 30,
   },
   {
     name: "Liver Fry",
@@ -292,8 +300,8 @@ export const products: Product[] = [
     image: menuLiver,
     position: "center",
     description: "Pan-fried beef liver tossed with caramelized onions.",
-    price: "$20",
-    priceNum: 20,
+    price: "$25",
+    priceNum: 25,
   },
 
   // Vegetables & Sides
@@ -330,8 +338,8 @@ export const products: Product[] = [
     image: menuGitheri,
     position: "center",
     description: "Slow-simmered maize and beans finished with herbs & avocado.",
-    price: "$16",
-    priceNum: 16,
+    price: "$20",
+    priceNum: 20,
   },
   {
     name: "Vegetarian Meal",
@@ -380,8 +388,8 @@ export const products: Product[] = [
     image: menuSamosa,
     position: "center",
     description: "Crispy golden pastry with spiced beef or vegetable filling.",
-    price: "$8",
-    priceNum: 8,
+    price: "$3.50",
+    priceNum: 3.5,
   },
   {
     name: "Viazi Karai & Bhajias",
@@ -400,8 +408,8 @@ export const products: Product[] = [
     image: mahamri,
     position: "60% center",
     description: "Sweet fried dough — warm, fluffy, and simply irresistible.",
-    price: "$6",
-    priceNum: 6,
+    price: "$1.50",
+    priceNum: 1.5,
   },
   {
     name: "Mahamri",
@@ -409,8 +417,8 @@ export const products: Product[] = [
     image: menuMahamri,
     position: "center 45%",
     description: "Sweet coconut fried bread with warm coastal cardamom.",
-    price: "$7",
-    priceNum: 7,
+    price: "$1.50",
+    priceNum: 1.5,
   },
   {
     name: "Sweet Potato",
@@ -427,8 +435,8 @@ export const products: Product[] = [
     image: menuKaimati,
     position: "center",
     description: "Golden coconut cookies & glazed sweet fried dumplings.",
-    price: "$8",
-    priceNum: 8,
+    price: "$2",
+    priceNum: 2,
   },
 
   // Hot Drinks
@@ -438,8 +446,8 @@ export const products: Product[] = [
     image: menuChai,
     position: "center 62%",
     description: "Strong & spiced Kenyan milk tea brewed fresh to order.",
-    price: "$5",
-    priceNum: 5,
+    price: "$3.50",
+    priceNum: 3.5,
   },
 ];
 

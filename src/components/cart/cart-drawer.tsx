@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ArrowRight, Check, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppMark } from "@/components/brand-wordmark";
-import { getWhatsAppUrl } from "@/data/restaurant-data";
+import { formatCurrency, getWhatsAppUrl } from "@/data/restaurant-data";
 import { useCart } from "@/context/use-cart";
 
 type CartDrawerProps = {
@@ -48,7 +48,7 @@ export const CartDrawer = React.memo(function CartDrawer({ onGoTo }: CartDrawerP
 
     const itemsSummary = cart.map(
       (item) =>
-        `• ${item.quantity}x ${item.name} ($${item.priceNum} each) = $${item.quantity * item.priceNum}`,
+        `• ${item.quantity}x ${item.name} ($${formatCurrency(item.priceNum)} each) = $${formatCurrency(item.quantity * item.priceNum)}`,
     );
 
     const messageLines = [
@@ -57,7 +57,7 @@ export const CartDrawer = React.memo(function CartDrawer({ onGoTo }: CartDrawerP
       "📋 *ORDER SUMMARY:*",
       ...itemsSummary,
       "",
-      `💰 *TOTAL AMOUNT: $${totalCartAmount}*`,
+      `💰 *TOTAL AMOUNT: $${formatCurrency(totalCartAmount)}*`,
     ];
 
     if (customerName.trim()) {
@@ -153,7 +153,7 @@ export const CartDrawer = React.memo(function CartDrawer({ onGoTo }: CartDrawerP
                       </button>
                     </div>
                     <span className="cart-item-unit-price">
-                      ${item.priceNum.toLocaleString()} each
+                      ${formatCurrency(item.priceNum)} each
                     </span>
                     <div className="cart-item-bottom">
                       <div className="cart-stepper">
@@ -174,7 +174,7 @@ export const CartDrawer = React.memo(function CartDrawer({ onGoTo }: CartDrawerP
                         </button>
                       </div>
                       <span className="cart-item-total">
-                        ${(item.priceNum * item.quantity).toLocaleString()}
+                        ${formatCurrency(item.priceNum * item.quantity)}
                       </span>
                     </div>
                   </div>
@@ -213,11 +213,11 @@ export const CartDrawer = React.memo(function CartDrawer({ onGoTo }: CartDrawerP
             <div className="cart-bill-summary">
               <div className="cart-bill-row">
                 <span>Items ({totalCartItems})</span>
-                <span>${totalCartAmount.toLocaleString()}</span>
+                <span>${formatCurrency(totalCartAmount)}</span>
               </div>
               <div className="cart-bill-row cart-bill-total">
                 <strong>Grand Total</strong>
-                <strong>${totalCartAmount.toLocaleString()}</strong>
+                <strong>${formatCurrency(totalCartAmount)}</strong>
               </div>
             </div>
 
@@ -227,7 +227,7 @@ export const CartDrawer = React.memo(function CartDrawer({ onGoTo }: CartDrawerP
               onClick={handleCheckoutWhatsApp}
             >
               <WhatsAppMark size={19} />
-              <span>Checkout via WhatsApp · ${totalCartAmount.toLocaleString()}</span>
+              <span>Checkout via WhatsApp · ${formatCurrency(totalCartAmount)}</span>
             </button>
 
             <div className="cart-footer-aux">

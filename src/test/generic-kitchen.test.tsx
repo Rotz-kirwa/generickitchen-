@@ -113,6 +113,40 @@ describe("Generic Kitchen Delicacies Comprehensive Functional Tests", () => {
     expect(url).toContain("https://wa.me/61455433391?text=Hello%20Generic%20Kitchen");
   });
 
+  it("has correct updated prices for all requested dishes", () => {
+    const findProduct = (name: string) => products.find((p) => p.name === name);
+
+    expect(findProduct("Chapati")).toEqual(expect.objectContaining({ price: "$3", priceNum: 3 }));
+    expect(findProduct("Mandazi")).toEqual(
+      expect.objectContaining({ price: "$1.50", priceNum: 1.5 }),
+    );
+    expect(findProduct("Samosa")).toEqual(
+      expect.objectContaining({ price: "$3.50", priceNum: 3.5 }),
+    );
+    expect(findProduct("Mahamri")).toEqual(
+      expect.objectContaining({ price: "$1.50", priceNum: 1.5 }),
+    );
+    expect(findProduct("Kaimati")).toEqual(expect.objectContaining({ price: "$2", priceNum: 2 }));
+    expect(findProduct("Chai (Kenyan Tea)")).toEqual(
+      expect.objectContaining({ price: "$3.50", priceNum: 3.5 }),
+    );
+    expect(findProduct("Beef Stew")).toEqual(
+      expect.objectContaining({ price: "$28", priceNum: 28 }),
+    );
+    expect(findProduct("Goat Stew")).toEqual(
+      expect.objectContaining({ price: "$30", priceNum: 30 }),
+    );
+    expect(findProduct("Liver Fry")).toEqual(
+      expect.objectContaining({ price: "$25", priceNum: 25 }),
+    );
+    expect(findProduct("Traditional Githeri")).toEqual(
+      expect.objectContaining({ price: "$20", priceNum: 20 }),
+    );
+
+    const githeriSlide = heroSlides.find((s) => s.name === "Traditional Githeri");
+    expect(githeriSlide).toEqual(expect.objectContaining({ price: "$20", priceNum: 20 }));
+  });
+
   it("toggles mobile navigation drawer", async () => {
     render(<TestApp />);
 
