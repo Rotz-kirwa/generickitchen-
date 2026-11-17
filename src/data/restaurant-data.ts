@@ -1,32 +1,32 @@
 import type { HeroSlide, Product } from "@/types/restaurant";
 
 import nyamaChoma from "@/assets/twala-nyama-choma.webp";
-import nyamaChoma640 from "@/assets/twala-nyama-choma-640.webp";
-import nyamaChoma960 from "@/assets/twala-nyama-choma-960.webp";
+import nyamaChoma480 from "@/assets/twala-nyama-choma-480.webp";
+import nyamaChoma768 from "@/assets/twala-nyama-choma-768.webp";
 
 import chapatiSamosa from "@/assets/twala-chapati-samosa.webp";
-import chapatiSamosa640 from "@/assets/twala-chapati-samosa-640.webp";
-import chapatiSamosa960 from "@/assets/twala-chapati-samosa-960.webp";
+import chapatiSamosa480 from "@/assets/twala-chapati-samosa-480.webp";
+import chapatiSamosa768 from "@/assets/twala-chapati-samosa-768.webp";
 
 import mahamri from "@/assets/twala-mahamri.webp";
-import mahamri640 from "@/assets/twala-mahamri-640.webp";
-import mahamri960 from "@/assets/twala-mahamri-960.webp";
+import mahamri480 from "@/assets/twala-mahamri-480.webp";
+import mahamri768 from "@/assets/twala-mahamri-768.webp";
 
 import kenyanPlate from "@/assets/twala-kenyan-plate.webp";
-import kenyanPlate640 from "@/assets/twala-kenyan-plate-640.webp";
-import kenyanPlate960 from "@/assets/twala-kenyan-plate-960.webp";
+import kenyanPlate480 from "@/assets/twala-kenyan-plate-480.webp";
+import kenyanPlate768 from "@/assets/twala-kenyan-plate-768.webp";
 
 import pilau from "@/assets/twala-pilau.webp";
-import pilau640 from "@/assets/twala-pilau-640.webp";
-import pilau960 from "@/assets/twala-pilau-960.webp";
+import pilau480 from "@/assets/twala-pilau-480.webp";
+import pilau768 from "@/assets/twala-pilau-768.webp";
 
 import githeri from "@/assets/twala-githeri.webp";
-import githeri640 from "@/assets/twala-githeri-640.webp";
-import githeri960 from "@/assets/twala-githeri-960.webp";
+import githeri480 from "@/assets/twala-githeri-480.webp";
+import githeri768 from "@/assets/twala-githeri-768.webp";
 
 import bhajia from "@/assets/twala-bhajia.webp";
-import bhajia640 from "@/assets/twala-bhajia-640.webp";
-import bhajia960 from "@/assets/twala-bhajia-960.webp";
+import bhajia480 from "@/assets/twala-bhajia-480.webp";
+import bhajia768 from "@/assets/twala-bhajia-768.webp";
 
 import menuMukimo from "@/assets/menu-mukimo.webp";
 import menuRice from "@/assets/menu-rice.webp";
@@ -56,8 +56,8 @@ import menuSamosa from "@/assets/menu-samosa.webp";
 
 export {
   nyamaChoma,
-  nyamaChoma640,
-  nyamaChoma960,
+  nyamaChoma480,
+  nyamaChoma768,
   chapatiSamosa,
   mahamri,
   kenyanPlate,
@@ -88,8 +88,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     description:
       "Smoky grilled nyama choma, served with vibrant kachumbari and all the joy of the shared table.",
     image: nyamaChoma,
-    image640: nyamaChoma640,
-    image960: nyamaChoma960,
+    image480: nyamaChoma480,
+    image768: nyamaChoma768,
     position: "center",
     alt: "Nyama choma with fresh tomato and red onion kachumbari",
   },
@@ -102,8 +102,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     description:
       "Basmati rice slow-cooked with caramelized beef, whole cardamom, cumin, and fresh tomato kachumbari.",
     image: pilau,
-    image640: pilau640,
-    image960: pilau960,
+    image480: pilau480,
+    image768: pilau768,
     position: "center",
     alt: "Aromatic Kenyan beef pilau served with fresh kachumbari",
   },
@@ -116,8 +116,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     description:
       "Soft, golden-layered chapatis paired with crisp spiced beef samosas and fresh herb kachumbari.",
     image: chapatiSamosa,
-    image640: chapatiSamosa640,
-    image960: chapatiSamosa960,
+    image480: chapatiSamosa480,
+    image768: chapatiSamosa768,
     position: "center",
     alt: "Freshly folded chapati with golden crispy samosas",
   },
@@ -130,8 +130,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     description:
       "Slow-simmered golden maize and red kidney beans in savoury tomato-onion gravy with ripe sliced avocado.",
     image: githeri,
-    image640: githeri640,
-    image960: githeri960,
+    image480: githeri480,
+    image768: githeri768,
     position: "center",
     alt: "Steaming traditional Kenyan githeri with sliced avocado",
   },
@@ -144,8 +144,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     description:
       "Pillowy coconut and cardamom triangles fried to a warm golden finish, made for sharing with spiced Kenyan tea.",
     image: mahamri,
-    image640: mahamri640,
-    image960: mahamri960,
+    image480: mahamri480,
+    image768: mahamri768,
     position: "center",
     alt: "Golden Kenyan mahamri served with spiced tea",
   },
@@ -158,8 +158,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     description:
       "Golden turmeric-battered potato slices fried crisp and served with tangy tamarind ukwaju chutney.",
     image: bhajia,
-    image640: bhajia640,
-    image960: bhajia960,
+    image480: bhajia480,
+    image768: bhajia768,
     position: "center",
     alt: "Crispy Kenyan potato bhajias with tamarind ukwaju chutney",
   },
@@ -172,8 +172,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     description:
       "Rich slow-braised Kenyan beef stew alongside fluffy white rice, sautéed sukuma wiki, and zesty kachumbari.",
     image: kenyanPlate,
-    image640: kenyanPlate640,
-    image960: kenyanPlate960,
+    image480: kenyanPlate480,
+    image768: kenyanPlate768,
     position: "center",
     alt: "Kenyan beef stew plate with white rice, sukuma wiki, and kachumbari",
   },

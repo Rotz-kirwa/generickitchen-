@@ -12,7 +12,7 @@ import { ContactSection } from "@/components/contact/contact-section";
 import { SiteFooter } from "@/components/footer/site-footer";
 import { FloatingActions } from "@/components/floating/floating-actions";
 import { CartDrawer } from "@/components/cart/cart-drawer";
-import { nyamaChoma, nyamaChoma640, nyamaChoma960 } from "@/data/restaurant-data";
+import { nyamaChoma, nyamaChoma480, nyamaChoma768 } from "@/data/restaurant-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
         rel: "preload",
         as: "image",
         href: nyamaChoma,
-        imageSrcSet: `${nyamaChoma640} 640w, ${nyamaChoma960} 960w, ${nyamaChoma} 1200w`,
+        imageSrcSet: `${nyamaChoma480} 480w, ${nyamaChoma768} 768w, ${nyamaChoma} 1200w`,
         imageSizes: "100vw",
         fetchPriority: "high",
       },

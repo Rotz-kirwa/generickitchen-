@@ -6,8 +6,8 @@ export type HeroSlide = {
   priceNum: number;
   description: string;
   image: string;
-  image640?: string;
-  image960?: string;
+  image480?: string;
+  image768?: string;
   position: string;
   alt: string;
 };

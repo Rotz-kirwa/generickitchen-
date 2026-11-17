@@ -106,8 +106,8 @@ export const HeroSection = React.memo(function HeroSection({
                   className="hero-standalone-bg"
                   src={slide.image}
                   srcSet={
-                    slide.image640 && slide.image960
-                      ? `${slide.image640} 640w, ${slide.image960} 960w, ${slide.image} 1200w`
+                    slide.image480 && slide.image768
+                      ? `${slide.image480} 480w, ${slide.image768} 768w, ${slide.image} 1200w`
                       : undefined
                   }
                   sizes="100vw"
