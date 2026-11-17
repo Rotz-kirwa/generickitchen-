@@ -8,7 +8,7 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 
@@ -74,9 +74,6 @@ const GOOGLE_FONTS_URL =
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-    // Replace these placeholders with the app's name and description when first building the app.
-    // Each content route, / included, must still set its own head(). Never add og:image or
-    // twitter:image here: every page without its own would inherit the root's preview image.
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -103,6 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: GOOGLE_FONTS_URL },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
     ],
@@ -118,19 +116,6 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
-        <link
-          data-google-fonts=""
-          rel="stylesheet"
-          href={GOOGLE_FONTS_URL}
-          media="print"
-          suppressHydrationWarning
-          onLoad={(event) => {
-            event.currentTarget.media = "all";
-          }}
-        />
-        <noscript>
-          <link rel="stylesheet" href={GOOGLE_FONTS_URL} />
-        </noscript>
       </head>
       <body suppressHydrationWarning>
         {children}
@@ -143,16 +128,8 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  useEffect(() => {
-    const fontLink = document.querySelector<HTMLLinkElement>("link[data-google-fonts]");
-    if (fontLink && fontLink.media !== "all") {
-      fontLink.media = "all";
-    }
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
