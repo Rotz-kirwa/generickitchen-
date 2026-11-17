@@ -61,8 +61,9 @@ describe("Generic Kitchen Delicacies Comprehensive Functional Tests", () => {
     expect(screen.getAllByText("Nyama Choma")[0]).toBeDefined();
 
     // Find and click "Add to Cart ($28)" button
-    const heroAddBtn = screen.getByText(/Add to Cart \(\$28\)/i);
-    fireEvent.click(heroAddBtn);
+    const heroAddBtns = screen.getAllByText(/Add to Cart \(\$28\)/i);
+    expect(heroAddBtns[0]).toBeDefined();
+    fireEvent.click(heroAddBtns[0]!);
 
     // Cart drawer should now be visible with 1 item
     expect(screen.getByText("Your Order")).toBeDefined();
@@ -145,6 +146,15 @@ describe("Generic Kitchen Delicacies Comprehensive Functional Tests", () => {
 
     const githeriSlide = heroSlides.find((s) => s.name === "Traditional Githeri");
     expect(githeriSlide).toEqual(expect.objectContaining({ price: "$20", priceNum: 20 }));
+
+    const chapatiSamosaSlide = heroSlides.find((s) => s.name === "Chapati & Beef Samosas");
+    expect(chapatiSamosaSlide).toEqual(expect.objectContaining({ price: "$6.50", priceNum: 6.5 }));
+
+    const mahamriChaiSlide = heroSlides.find((s) => s.name === "Coastal Mahamri & Chai");
+    expect(mahamriChaiSlide).toEqual(expect.objectContaining({ price: "$5", priceNum: 5 }));
+
+    const comfortPlateSlide = heroSlides.find((s) => s.name === "All Kenyan Comfort Plate");
+    expect(comfortPlateSlide).toEqual(expect.objectContaining({ price: "$28", priceNum: 28 }));
   });
 
   it("toggles mobile navigation drawer", async () => {

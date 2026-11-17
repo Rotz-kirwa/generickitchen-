@@ -119,8 +119,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     name: "Chapati & Beef Samosas",
     scriptSubtitle: "Hot off the pan",
     category: "Snacks",
-    price: "$12",
-    priceNum: 12,
+    price: "$6.50",
+    priceNum: 6.5,
     description:
       "Soft, golden-layered chapatis paired with crisp spiced beef samosas and fresh herb kachumbari.",
     image: chapatiSamosa,
@@ -147,8 +147,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     name: "Coastal Mahamri & Chai",
     scriptSubtitle: "Mildly sweet & fluffy",
     category: "Sweets",
-    price: "$11",
-    priceNum: 11,
+    price: "$5",
+    priceNum: 5,
     description:
       "Pillowy coconut and cardamom triangles fried to a warm golden finish, made for sharing with spiced Kenyan tea.",
     image: mahamri,
@@ -175,8 +175,8 @@ export const heroSlides: [HeroSlide, ...HeroSlide[]] = [
     name: "All Kenyan Comfort Plate",
     scriptSubtitle: "A little bit of home",
     category: "Meat Dishes",
-    price: "$25",
-    priceNum: 25,
+    price: "$28",
+    priceNum: 28,
     description:
       "Rich slow-braised Kenyan beef stew alongside fluffy white rice, sautéed sukuma wiki, and zesty kachumbari.",
     image: kenyanPlate,
